@@ -1,0 +1,34 @@
+User Manual: FixIT Code
+
+This is a user manual for our code as you run it.
+
+This system consists of three Bash scripts:
+    •	MAIN.sh: Main script that manages license verification, making the user, and the menu.
+    •	Parser.sh: A script that takes names from a webpage and prepares them for account creation.
+    •	liscenceVerifier.sh: Helper script that verifies a vaild liscense.
+
+The purpose of these scripts is to automate user account creation and maintain a record of generated usernames and passwords.
+
+How to run the MAIN.sh script:
+
+    1. On the home page of Ubuntu, open the terminal (ctrl + alt + T)
+
+    2. Move to the directory containing the main script by either opening the file,
+    or by changing your directory by typing "cd/<directory path>"
+    
+    3. Verify the file is executable by typing "chmod +x"
+
+    4. Run the script by typing "./MAIN.sh
+
+After executing the code and the licence is verified, the User is given
+two choices and prompted for an inpout (1 or 2):
+
+(Pressing 1) Automated Account Creation
+    •	Takes names from the Tennessee Tech faculty webpage.
+    •	Creates accounts for each name found.
+    •	Credentials are stored in UserList.txt.
+
+(Pressing 2) Manual Account Creation
+    •	Prompts for first and last name.
+    •	Creates a single account with generated credentials.
+    •	Credentials are stored in UserList.txt.
