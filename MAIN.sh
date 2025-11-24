@@ -6,12 +6,12 @@ Add_User(){	 #takes firstName and Lastname, anything else is weird.
 	UserName="$1.$2"
 	UserPassword="$1$2DEELTECH" 
 	echo "$UserName $UserPassword" >> "UserList.txt" #Comment this line out on release version
-<<ea
-	This actually adds the user to the system, blocked it out on this version, bc, well, this isnt being run in a vm, tested it though with my name and I know it works
+
+	#This actually adds the user to the system, blocked it out on this version, bc, well, this isnt being run in a vm, tested it though with my name and I know it works
 	sudo adduser --disabled-password --allow-bad-names --gecos "" "$UserName"
 	echo "$UserName:$UserPassword" | sudo chpasswd
 	echo "User '$USERNAME' created successfully."	
-ea
+
 }	
 clear
 echo "" > "UserList.txt" #Comment this out in release version
