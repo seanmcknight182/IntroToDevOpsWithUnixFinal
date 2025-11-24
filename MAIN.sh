@@ -6,17 +6,21 @@ Add_User(){	 #takes firstName and Lastname, anything else is weird.
 	UserName="$1.$2"
 	UserPassword="$1$2DEELTECH" 
 	echo "$UserName $UserPassword" >> "UserList.txt" #Comment this line out on release version
+<<ea
 	This actually adds the user to the system, blocked it out on this version, bc, well, this isnt being run in a vm, tested it though with my name and I know it works
 	sudo adduser --disabled-password --allow-bad-names --gecos "" "$UserName"
 	echo "$UserName:$UserPassword" | sudo chpasswd
 	echo "User '$USERNAME' created successfully."	
+ea
 }	
-
+clear
 echo "" > "UserList.txt" #Comment this out in release version
 chmod +x "TotallyUnimportantProgram"
 chmod +x "Parser.sh"
+echo "input 16 digit liscence code"
 #Im bad with bash. Let me tell you how much I hate bash.. I HATE BASH. STUPID SYNTAX. I MADE THIS WHOLE PROGRAM AND I HATE BASH.
 Return_Value="$(./TotallyUnimportantProgram)"
+clear
 if(( Return_Value == 1 )); then
 	echo "Liscence NOT verified, please legally obtain this software"
 else
