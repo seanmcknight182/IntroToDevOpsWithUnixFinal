@@ -4,14 +4,15 @@
 
 Add_User(){	 #takes firstName and Lastname, anything else is weird.
 	UserName="$1.$2"
-	UserPassword="$1$2DEELTECH" 
+	UserPassword=$(tr -dc 'A-Za-z0-9' </dev/urandom | head -c 16)
+
 	echo "$UserName $UserPassword" >> "UserList.txt" #Comment this line out on release version
 
 	#This actually adds the user to the system, blocked it out on this version, bc, well, this isnt being run in a vm, tested it though with my name and I know it works
-	sudo adduser --disabled-password --allow-bad-names --gecos "" "$UserName"
-	echo "$UserName:$UserPassword" | sudo chpasswd
-	echo "User '$USERNAME' created successfully."	
-
+	#sudo adduser --disabled-password --allow-bad-names --gecos "" "$UserName"
+	#echo "$UserName:$UserPassword" | sudo chpasswd
+	#echo "User '$USERNAME' created successfully."	
+	
 }	
 clear
 echo "" > "UserList.txt" #Comment this out in release version
@@ -53,4 +54,5 @@ while true; do
 	fi
 done
 rm names.txt thepage.txt
+
 exit 0 
